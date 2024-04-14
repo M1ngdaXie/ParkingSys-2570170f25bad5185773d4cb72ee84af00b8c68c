@@ -22,6 +22,7 @@
             <li>No payments found.</li>
         {% endfor %}
     </ul>
+    <p>Total Payment Sum: ${{ total_payment_sum|floatformat:2 }}</p>
     {% else %}
         <p>No payments found.</p>
     {% endif %}

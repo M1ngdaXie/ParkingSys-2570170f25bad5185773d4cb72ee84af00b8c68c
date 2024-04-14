@@ -600,3 +600,16 @@ class PermitUpdate(LoginRequiredMixin, View):
         return render(request=request,
                       template_name='driver/permit_update.html', 
                       context={'permit':permit,'form':form})
+    
+class PaymentList(LoginRequiredMixin, View):
+    def get(self, request):
+        payments = None
+        total_payment_sum = None
+        if not admin(request):
+            return redirect('unauthorized')
+        else:
+            payments = Payment.objects.all()
+            total_payment_sum = Payment.objects.aggregate(Sum('amount'))['amount__sum'] or 0
+        return render(request=request,
+                      template_name='driver/payment_list.html',
+                      context={'payments': payments, 'total_payment_sum': total_payment_sum})
