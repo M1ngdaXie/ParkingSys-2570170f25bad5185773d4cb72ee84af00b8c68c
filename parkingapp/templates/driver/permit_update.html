@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update Permit</title>
+</head>
+<body>
+    <h1>Update Permit - {{ permit.permit_id }}</h1>
+    {% if error_message %}
+        <p style="color: red;">{{ error_message }}</p>
+    {% endif %}
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Update Permit</button>
+    </form>
+    <br>
+    <a href="/driver/permit-delete/{{ permit.permit_id }}/">Delete Permit</a> <br>
+    <br>
+    <a href="{% url 'permit_list' %}">Back to Permit List</a>
+    <br>
+    <br>
+    <form action="{% url 'logout' %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Logout</button>
+    </form>
+</body>
+</html>

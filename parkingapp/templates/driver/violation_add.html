@@ -1,0 +1,18 @@
+<html>
+    <body>
+        <h1>Add New Violation</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }} 
+            <input type="submit" value="Add">
+        </form>
+        <br>
+        <a href="{% url 'violation_list' %}">Back to Violation List</a>
+        <br>
+        <br>
+        <form action="{% url 'logout' %}" method="post">
+            {% csrf_token %}
+            <button type="submit">Logout</button>
+        </form>
+    </body>
+</html>

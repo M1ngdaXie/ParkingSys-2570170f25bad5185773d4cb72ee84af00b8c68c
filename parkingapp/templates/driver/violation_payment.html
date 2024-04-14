@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Violation Payment</title>
+</head>
+<body>
+    <h1>Violation Payment</h1>
+    <p>Violation ID: {{ violation.violation_id }}</p>
+    <p>Violation Type: {{ violation.violation_type }}</p>
+    <p>Fine Amount: {{ violation.fine_amount }}</p>
+    
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Pay Fine</button>
+    </form>
+    <br>
+    <br>
+    <a href="{% url 'select_violation' %}">Back to Select Violation</a>
+    <br>
+    <br>
+    <form action="{% url 'logout' %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Logout</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<html>
+<body>
+    <h1>Update Payment Record</h1>
+    <form method="post">
+
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <input type="submit" value="Update">
+    </form>
+    <br>
+    <a href="{% url 'payment_list' %}">Back to Payment Records</a>
+    <br>
+    <br>
+    <form action="{% url 'logout' %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Logout</button>
+    </form>
+</body>
+</html>

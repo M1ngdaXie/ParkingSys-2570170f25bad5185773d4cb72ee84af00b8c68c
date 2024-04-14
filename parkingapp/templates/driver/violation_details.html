@@ -1,0 +1,26 @@
+<html>
+    <body>
+        <h1>Violation Details</h1>
+        <div>
+            <p>Violation ID: {{ violation.violation_id }}</p>
+            <p>Vehcile ID: {{ violation.vehicle_id }}</p>
+            <p>Violation Type: {{ violation.violation_types }}</p>
+            <p>Date Issued: {{ violation.date_issued }}</p>
+            <p>Payment ID: {{ violation.payment_id }}</p>
+            <p>Fine Amount: {{ violation.fine_amount }}</p>
+            <p>Status: {{ violation.status }}</p>
+        </div>
+    <br>
+    <a href="/driver/violation/update/{{ violation.violation_id }}/">Update Violation</a> <br>
+    <a href="/driver/violation/delete/{{ violation.violation_id }}/">Delete Violation</a> <br>
+    <br>
+    <a href="{% url 'violation_list' %}">Back to Violation List</a>
+    <br>
+    <br>
+    <form action="{% url 'logout' %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Logout</button>
+    </form>
+    </body>
+</html>
+<!--This page isnt showing any details need to work on it-->

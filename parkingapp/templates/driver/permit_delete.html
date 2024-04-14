@@ -1,0 +1,20 @@
+<html>
+<body>
+    <h1>Delete Permit</h1>
+    <form method="post" class="form">
+
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <input type="submit" value="Delete">
+    </form>
+    <br>
+    <a href="{% url 'permit_list' %}">Back to Permit List</a>
+    <br>
+    <br>
+    <form action="{% url 'logout' %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Logout</button>
+    </form>
+</body>
+</html>

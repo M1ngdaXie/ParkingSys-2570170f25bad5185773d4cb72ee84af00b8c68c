@@ -1,0 +1,23 @@
+<html>
+    <body>
+        <h1>Driver Details</h1>
+        <div>
+            <h2>{{ driver.first_name }}{{ driver.last_name }}</h2>
+            <p>Driver ID: {{ driver.driver_id }}</p>
+            <p>Type: {{ driver.type }}</p>
+            <p>Address: {{ driver.address }}</p>
+        </div>
+    <br>
+    <a href="/driver/drivers-update/{{ driver.driver_id }}/">Update Driver</a> <br>
+    <a href="/driver/drivers-delete/{{ driver.driver_id }}/">Delete Driver</a> <br>
+    <br>
+    <a href="{% url 'driver_list' %}">Back to Driver List</a>
+    <br>
+    <br>
+    <form action="{% url 'logout' %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Logout</button>
+    </form>
+
+</body>
+</html>

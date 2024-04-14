@@ -1,0 +1,20 @@
+<html>
+<body>
+    <h1>Delete Vehicle</h1>
+    <form method="post" class="form">
+
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <input type="submit" value="Delete">
+    </form>
+    <br>
+    <a href="{% url 'vehicle_list' %}">Back to Vehicle List</a>
+    <br>
+    <br>
+    <form action="{% url 'logout' %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Logout</button>
+    </form>
+</body>
+</html>

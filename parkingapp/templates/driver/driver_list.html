@@ -1,0 +1,35 @@
+<html>
+<head>
+    <title>Driver List</title>
+</head>
+<body>
+    <h1>Driver List</h1>
+
+    {% if drivers %}
+    <ul>
+        {% for driver in drivers %}
+            <li>
+                <a href="/driver/drivers-details/{{ driver.driver_id }}/">
+                    {{ driver.first_name }} {{ driver.last_name }} - {{ driver.address }} - {{ driver.type}}
+                </a>
+            </li>
+        {% empty %}
+            <li>No drivers found.</li>
+        {% endfor %}
+    </ul>
+    {% else %}
+        <p>You are not authorized to view this information.</p>
+    {% endif %}
+    <br>
+    <a href="{% url 'add_driver' %}">Add New Driver</a> <br> 
+    <br>
+    <a href="{% url 'homepage' %}">Back to Homepage</a>
+    <br>
+    <br>
+    <form action="{% url 'logout' %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Logout</button>
+    </form>
+    
+</body>
+</html>

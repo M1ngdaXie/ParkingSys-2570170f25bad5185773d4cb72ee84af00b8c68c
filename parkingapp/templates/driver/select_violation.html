@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Violation</title>
+</head>
+<body>
+    <h1>Select Violation</h1>
+
+    {% if violations %}
+        <ul>
+            {% for violation in violations %}
+                <li>
+                    <a href="/driver/violation/payment/{{ violation.violation_id }}/">Violation ID: {{ violation.violation_id }}</a> - {{ violation.violation_types }}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No violations found.</p>
+    {% endif %}
+    <br>
+    <br>
+    <a href="{% url 'homepage' %}">Back to Homepage</a>
+    <br>
+    <br>
+    <form action="{% url 'logout' %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Logout</button>
+    </form>
+</body>
+</html>

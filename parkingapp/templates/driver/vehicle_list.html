@@ -1,0 +1,35 @@
+<html>
+<head>
+    <title>Vehicle List</title>
+</head>
+<body>
+    <h1>Vehicle List</h1>
+
+    {% if vehicles %}
+    <ul>
+        {% for vehicle in vehicles %}
+            <li>
+                <a href="/driver/vehicle-details/{{ vehicle.vehicle_id }}/">
+                    {{ vehicle.driver.first_name }} {{ vehicle.driver.last_name }} - {{ vehicle.make }} - {{ vehicle.model }}  - {{vehicle.color}} - {{vehicle.year}} - {{vehicle.license_plate}}
+                </a>
+            </li>
+        {% empty %}
+            <li>No vehicles found.</li>
+        {% endfor %}
+    </ul>
+    {% else %}
+        <p>You are not authorized to view this information.</p>
+    {% endif %}
+    <br>
+    <a href="{% url 'add_vehicle' %}">Add New Vehicle</a> <br> 
+    <br>
+    <a href="{% url 'homepage' %}">Back to Homepage</a>
+    <br>
+    <br>
+    <form action="{% url 'logout' %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Logout</button>
+    </form>
+</body>
+</html>
+

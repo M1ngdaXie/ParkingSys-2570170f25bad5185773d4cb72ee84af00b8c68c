@@ -1,0 +1,14 @@
+<html>
+    <body>
+        <h1>You are not authorized to view this page.</h1>
+        <br>
+        <br>
+        <a href="/driver/homepage/">Back to Homepage</a>
+        <br>
+        <br>
+        <form action="{% url 'logout' %}" method="post">
+            {% csrf_token %}
+            <button type="submit">Logout</button>
+        </form>
+       
+    </body>

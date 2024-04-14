@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Permit</title>
+</head>
+<body>
+    <h1>Select Permit</h1>
+
+    {% if permits %}
+        <ul>
+            {% for permit in permits %}
+                <li>
+                    <a href="/driver/permit/payment/{{ permit.permit_id }}/">Permit ID: {{ permit.permit_id }}</a> - {{ permit.types }}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No permits available for payment.</p>
+    {% endif %}
+    <br>
+    <br>
+    <a href="{% url 'homepage' %}">Back to Homepage</a>
+    <br>
+    <br>
+    <form action="{% url 'logout' %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Logout</button>
+    </form>
+</body>
+</html>

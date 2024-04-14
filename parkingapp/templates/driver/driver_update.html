@@ -1,0 +1,20 @@
+<html>
+<body>
+    <h1>Update Driver</h1>
+    <form method="post">
+
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <input type="submit" value="Update">
+    </form>
+    <br>
+    <a href="{% url 'driver_list' %}">Back to Driver List</a>
+    <br>
+    <br>
+    <form action="{% url 'logout' %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Logout</button>
+    </form>
+</body>
+</html>

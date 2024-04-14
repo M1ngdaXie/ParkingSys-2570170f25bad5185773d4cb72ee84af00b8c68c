@@ -1,0 +1,53 @@
+from django.urls import path
+from . import views
+from .views import DriverListView,AddDriverView,DriverDetailView,PaymentAdd,PaymentList, PaymentUpdate, PaymentDelete, PaymentDetails, AddDriverPermitView, AddDriverVehicleView, AddPersonalInfoView
+
+
+urlpatterns = [
+   path('drivers-list/', views.DriverListView.as_view(), name='driver_list'),
+   path('drivers-add/', AddDriverView.as_view(), name='add_driver'),
+   path('drivers-delete/<int:driver_id>/', views.DriverDelete.as_view(), name='driver-delete'),
+   path('drivers-delete/', views.DriverDelete.as_view(), name='driver-delete'),
+   path('drivers-update/<int:driver_id>/', views.DriverUpdate.as_view(), name='driver-update'),
+   path('drivers-update/', views.DriverUpdate.as_view(), name='driver-update'),
+   path('drivers-details/', views.DriverDetailView.as_view(), name='driver-details'),
+   path('drivers-details/<int:driver_id>/', views.DriverDetailView.as_view(), name='driver-details'),
+   path('vehicles-add/', views.VehicleAdd.as_view(), name='add_vehicle'),
+   path('vehicles-list/', views.VehicleList.as_view(), name='vehicle_list'),
+   path('vehicles-delete/<int:vehicle_id>/', views.VehicleDelete.as_view(), name='vehicle-delete'),
+   path('vehicles-delete/', views.VehicleDelete.as_view(), name='vehicle-delete'),
+   path('vehicles-update/<int:vehicle_id>/', views.VehicleUpdate.as_view(), name='vehicle-update'),
+   path('vehicles-update/', views.VehicleUpdate.as_view(), name='vehicle-update'),
+   path('vehicle-details/<int:vehicle_id>/', views.VehicleDetails.as_view(), name='vehicle-details'),
+   path('vehicle-details/', views.VehicleDetails.as_view(), name='vehicle-details'),
+   path('permit/add/', views.PermitAdd.as_view(), name='permit_add'),
+   path('permit-delete/', views.PermitDelete.as_view(), name='permit_delete'),
+   path('permit-delete/<int:permit_id>/', views.PermitDelete.as_view(), name='permit_delete'),
+   path('permit-update', views.PermitUpdate.as_view(), name='permit_update'),
+   path('permit-update/<int:permit_id>/', views.PermitUpdate.as_view(), name='permit_update'),
+   path('permit/list/', views.PermitList.as_view(), name='permit_list'),
+   path('violation/list/', views.ViolationList.as_view(), name = 'violation_list'),
+   path('violation/add/', views.ViolationAdd.as_view(), name = 'add_violation'),
+   path('violation/delete/', views.ViolationDelete.as_view(), name ='delete_violation'),
+   path('violation/delete/<int:violation_id>/', views.ViolationDelete.as_view(), name ='delete_violation'),
+   path('violation/update/', views.ViolationUpdate.as_view(), name='update_violation'),
+   path('violation/update/<int:violation_id>/', views.ViolationUpdate.as_view(), name='update_violation'),
+   path('violation/details/<int:violation_id>/', views.ViolationDetails.as_view(), name='violation-details'),
+   path('homepage/', views.HomepageView.as_view(), name='homepage'),
+   path('unauthorized/', views.UnauthorizedView.as_view(), name='unauthorized'),
+   path('payment/add/', PaymentAdd.as_view(), name='payment_add'),
+   path('payment/list/', PaymentList.as_view(), name='payment_list'),
+   path('payment/delete/<int:payment_id>/', PaymentDelete.as_view(), name='payment_delete'),
+   path('payment/update/<int:payment_id>/', PaymentUpdate.as_view(), name='payment_update'),
+   path('payment/details/<int:payment_id>/', PaymentDetails.as_view(), name='payment_update'),
+   path('select_violation/', views.SelectViolationView, name='select_violation'),
+   path('violation/payment/<int:violation_id>/', views.ViolationPaymentView.as_view(), name='violation_payment'),
+   path('select_permit/', views.SelectPermitView, name='select_permit'),
+   path('permit/payment/<int:permit_id>/', views.PermitPaymentView, name='permit_payment'),
+   path('personalinfo/', views.PersonalInfo.as_view(), name='personalinfo'),
+   path('personalinfo/add/', AddPersonalInfoView.as_view(), name='add_personal_info'),
+   path('driverpermit/add/', AddDriverPermitView.as_view(), name='driver_permit'),
+   path('drivervehicle/add/', AddDriverVehicleView.as_view(), name='driver_vehicle'),
+]
+
+

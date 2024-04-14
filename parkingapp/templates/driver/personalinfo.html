@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Personal Info</title>
+</head>
+<body>
+    <h1>Personal Information Page</h1>
+    <ul>
+        <li><a href="{% url 'add_personal_info' %}">Add Personal Info</a></li>
+        <li><a href="{% url 'driver_permit' %}">Add Driver Permit</a></li>
+        <li><a href="{% url 'driver_vehicle' %}">Add Driver Vehicle</a></li>
+    </ul>
+    <br>
+    <br>
+    <a href="{% url 'homepage' %}">Back to Homepage</a>  <br> 
+    <br>
+    <br>
+    <form action="{% url 'logout' %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Logout</button>
+    </form>
+</body>
+</html>

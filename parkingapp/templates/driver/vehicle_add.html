@@ -1,0 +1,21 @@
+
+<html>
+<head>
+    <title>Add New Vehicle</title>
+</head>
+<body>
+    <h2>Add New Vehicle</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Add Vehicle</button>
+    </form>
+    <a href="{% url 'vehicle_list' %}">Back to Vehicle List</a>
+    <br>
+    <br>
+    <form action="{% url 'logout' %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Logout</button>
+    </form>
+</body>
+</html>

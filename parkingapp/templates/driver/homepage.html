@@ -1,0 +1,29 @@
+<html>
+<head>
+    <title>Homepage</title>
+</head>
+<body>
+    <h1>U of U Parking System Homepage</h1>
+
+    <h2>Driver Dashboard:</h2>
+    <a href="{% url 'personalinfo' %}">Add Personal Info</a> <br>
+    <a href="{% url 'select_violation' %}">Pay Violation Fine</a> <br>
+    <a href="{% url 'select_permit' %}">Pay for Permit</a>
+    <br>
+    <br>
+    <h2>Admin Dashboard:</h2>
+    <a href="{% url 'driver_list' %}">View Drivers</a> <br>
+    <a href="{% url 'vehicle_list' %}">View Vehicles</a> <br>
+    <a href="{% url 'permit_list' %}">View Permits</a> <br>
+    <a href="{% url 'violation_list' %}">View Violations</a><br>
+    <a href="{% url 'payment_list' %}">View Payment Records</a>
+
+    <br>
+    <br>
+    <br>
+    <form action="{% url 'logout' %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Logout</button>
+    </form>
+</body>
+</html>
